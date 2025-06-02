@@ -1,0 +1,20 @@
+name: Run Spark ETL via Docker Compose
+
+on:
+  push:
+    branches: [ master, stage ]
+
+jobs:
+  run-etl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📦 Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🐳 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🐳 Build and Run with Docker Compose
+        run: |
+          docker-compose -f docker-compose.yml up --build --abort-on-container-exit
