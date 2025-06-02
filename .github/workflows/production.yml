@@ -23,7 +23,7 @@ jobs:
         run: echo "DOCKER_DEFAULT_PLATFORM=linux/amd64" >> $GITHUB_ENV
 
       - name: Build Docker Image
-        run: docker-compose build
+        run: docker compose build
 
       - name: Run Application
-        run: docker-compose run hellofresh
+        run: docker compose run hellofresh
