@@ -24,8 +24,8 @@ RUN DOWNLOAD_URL="https://download.java.net/java/GA/jdk${JAVA_VERSION}/9/GPL/ope
    && rm -rf "${TMP_DIR}" \
    && java --version
 
-# Download and install Spark 3.5.1
-RUN DOWNLOAD_URL_SPARK="https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" \
+# Download and install Spark 3.5.1 with Hadoop 3 + Scala 2.13
+RUN DOWNLOAD_URL_SPARK="https://downloads.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3-scala2.13.tgz" \
     && wget --no-verbose -O apache-spark.tgz "${DOWNLOAD_URL_SPARK}" \
     && mkdir -p /home/spark \
     && tar -xf apache-spark.tgz -C /home/spark --strip-components=1 \
